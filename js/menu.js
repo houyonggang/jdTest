@@ -5,12 +5,45 @@ class Menu{
         this.lis = this.box.querySelectorAll("li")
         this.subMenuEles = this.box.querySelectorAll(".sub-menu")
 
+        this.timer1 = null
+        this.timer2 = null
         this.init()
     }
 
     init(){
-        console.log("menu")
         
+        //处理一级菜单滑动时，二级菜单马上变为一级菜单所选项
+        this.lis.forEach((item) => {
+            item.addEventListener("mouseenter",(e)=>{
+                let li = e.target
+
+                if(this.timer1 != null){
+                    clearTimeout(this.timer1)
+                }
+
+                //设置定时任务
+                this.timer1 = setTimeout(()=>{
+                    this.subMenuEles.forEach((item)=>{
+                        item.classList.remove("active")
+                    })
+                    li.children[1].classList.add("active")
+                },200)
+            })
+        });
+
+        this.lis.forEach((item) => {
+            item.addEventListener("mouseleave",(e)=>{
+                let li = e.target
+
+                if(this.timer2!= null) {
+                    clearTimeout(this.timer2)
+                }
+
+                this.timer2 = setTimeout(() =>{
+                    li.children[1].classList.remove("active")
+                },200)
+            })
+        });
     }
 
 }
