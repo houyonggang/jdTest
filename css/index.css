@@ -160,9 +160,14 @@
     background: #d9d9d9;
 }
 
-.menu-box ul li:hover .sub-menu{
+/* .menu-box ul li:hover .sub-menu{
+    display: block;
+} */
+
+.menu-box ul li.active{
     display: block;
 }
+
 
 .menu-box ul li a{
     color: #333333;
