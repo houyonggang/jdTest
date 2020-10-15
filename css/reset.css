@@ -1,13 +1,11 @@
-html,body,ul,ol,li{
+html, body, ul, ol, li {
+    padding: 0px;
+    margin: 0px;
+}
+dl, dt, dd {
     margin: 0px;
     padding: 0px;
 }
-
-li{
+ul li {
     list-style: none;
-}
-
-dl,dt ,dd{
-    margin: 0px;
-    padding: 0px;
 }
